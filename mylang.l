@@ -8,8 +8,11 @@ void yyerror(char*);
 int calculateIndex(char*, char);
 %}
 %option noyywrap
+OPERATORS [-\(\)<>\{\}+=\*/^%;]
 
 %%
+
+#.*						{; /*comment*/}
 "~"						return UMINUS;
 ">=" 					return GE;
 "<=" 					return LE;

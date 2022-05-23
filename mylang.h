@@ -7,8 +7,8 @@ typedef struct {
 		int ival;
 		double fval;
 	};
-	bool iORf; //true = int, false = float
-} conNodeType; // <--------------- *con function refers tho this
+	bool iORf; //true = integer constant, false = floating point constant
+} conNodeType; // <--------------- *con function refers to this
 
 
 /*identifiers*/
@@ -18,17 +18,27 @@ typedef struct {
 		int fIndex;
 	};
 	bool iORf; // true = int, false = float
-} idNodeType; //<---------- *id function refers tho this
+} idNodeType; //<---------- *id function refers to this
 
 
 /*operators*/
 typedef struct{
 	int oper;	//operand
 	int nops;	//number of operands
-	struct nodeTypeTag *op[1];	/*operands extended at runtime*/
-} oprNodeType; //<----------- *opr function refers tho this
+	struct nodeTypeTag *op[1];	/*operands extended at runtime*/ //a list of pointers of type p pointing to an expression
+	// in expr -> if 
+} oprNodeType; //<----------- *opr function refers to this
 
-
+/**lets take the example of 
+ * SIVAR '=' expr ';'
+ * opr('=', 2, id($1, true), $3) is called
+ * opr is getting:
+ * 		oper as '='
+ * 		nops as 2 (SIVAR and expr)
+ * 		and id($1, true) , $3 are pointers to these two things
+ * 		id($1, true) is of type p with p->type = typeCon and p->con.ival = $1, p->con.iORf = true;
+ * 		$3 is of type p
+**/
 
 //return struct for ex function in mylangInterpreter.c to return int/double and a boolean variable
 typedef struct{
@@ -67,4 +77,10 @@ bison -d mylang.y && flex mylang.l mylang.tab.h && gcc mylangInterpreter.c lex.y
 a.exe < printPrimes.txt
 a.exe <printEven.txt
 a.exe < calculateSI.txt
+a.exe <fizzbuzz.txt
 */
+
+/**
+ * you can comment using # <insert text here>
+ * single line comments only
+**/

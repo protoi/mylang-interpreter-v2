@@ -1,3 +1,5 @@
+#print prime numbers
+#between 1 and 50
 {
 	c00 = 50;
 	a00 = 1;
@@ -8,7 +10,7 @@
 		d00 = 1;
 		while(d00 <=a00)
 		{
-			if(a00%d00 == 0)
+			if(a00%d00 == 0)	#this is a comment
 			{
 				f00=f00+1;
 			}
