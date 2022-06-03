@@ -8,13 +8,13 @@
 		{
 			if(a00 % 100 == 0)
 			{
-				if(a00 % 400 == 0)
+				if(a00 % 400 == 0) # this is a comment
 				{
 					display a00;
 				}
 				else
 				{
-					;
+					; #do nothing
 				}
 			}
 			else
