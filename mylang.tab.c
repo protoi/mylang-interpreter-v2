@@ -1877,6 +1877,7 @@ yyreturn:
 #line 101 "mylang.y"
 
 
+
 #define SIZEOF_NODETYPE ((char *)&p->con - (char *)p)
 
 nodeType *con(int value, double dvalue, bool which)
@@ -1916,7 +1917,7 @@ nodeType *id(int index, bool which)
 	return p;
 }
 
-nodeType *opr(int oper, int nops, ...)
+nodeType *opr(int oper, int nops, ...) //variable argument list
 {
 	va_list ap;
 	nodeType *p;

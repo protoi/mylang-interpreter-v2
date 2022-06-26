@@ -8,7 +8,7 @@
 		{
 			if(a00 % 100 == 0)
 			{
-				if(a00 % 400 == 0) # this is a comment
+				if(a00 % 400 == 0) # divisibility by 400
 				{
 					display a00;
 				}

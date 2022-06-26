@@ -25,7 +25,7 @@
 				}
 				else
 				{
-					display b00;
+					display b00;	# just display the number 
 				}
 			}
 		}
